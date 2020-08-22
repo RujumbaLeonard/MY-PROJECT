@@ -1,0 +1,105 @@
+#include "stdio.h"
+#include "string.h"
+#include "stdlib.h"
+
+struct Client{
+  char name[30];
+  char residentialarea[30];
+  char workplace[30];
+  char hairstyle[30];
+  char payment[30];
+};
+
+int main() {
+  FILE *Clients;
+  Clients=fopen("Clients.txt","a");
+  struct Client client[5];
+  int i,j,x,price,num;
+  int contact[10];
+
+  char choice,choice2;
+  char base;
+  char a,b;
+  char payment[10];
+  fprintf(Clients,"WELCOME TO RASHA UNISEX & BRIDAL CARE SALOON\n");
+
+  printf("please enter \n1.Enter 'a' for yes \n2.Enter 'b' for no\n\n");
+  printf("Are you willing to give your personal information? \n");
+  printf("NOTE; CHOOSING 'b' WILL DENY YOU ACCESS OT ANY FURTHER SERVICE\n");
+  scanf("%c",&choice);
+
+
+  if (choice=='a') {
+   for ( i = 0; i < 1; i++) {
+     printf("\nplease enter your name(MAX 30 CHARACTERS);\n");
+     printf("NOTE:Join your names with a hyphen '_' eg Leo_Nard:\n");
+     scanf("%s",client[i].name);
+     fprintf(Clients,"Name: %s\n",client[i].name);
+     printf("\nplease enter your residential area(MAX 30 CHARACTERS eg mukono);\n");
+     scanf("%s",client[i].residentialarea);
+     fprintf(Clients,"Place of residence: %s\n",client[i].residentialarea);
+
+     printf("\nplease enter your workplace(MAX 30 CHARACTERS);\n");
+     scanf("%s",client[i].workplace);
+     fprintf(Clients,"Workplace: %s\n",client[i].workplace);
+
+     printf("\nplease enter your Telephone contact(10 DIGITS);\n");
+     for(x=0;x<1;x++){
+       printf("+256");
+       scanf("%i",&contact);
+       fprintf(Clients,"\nTelephone Contact: +256%i\n",contact[x]);
+
+     }
+
+     printf("\n\nPLEASE CHOOSE THE HAIR STYLE YOU WOULD WISH TO GET;\nA.weave->10,000\nB.pencil->12,000\nC.Twist->15,000\nD.Braids->20,000\n");
+     printf("NOTE; The letter must be capital for the options\n");
+     scanf("%s",client[i].hairstyle);
+     printf("\npliz enter the mode of payment from those given bellow;\n1.cash\n2.creditcard\n3.mobilemoney\n");
+     printf("NOTE: dont separate the words when typing\n");
+     scanf("%s",client[i].payment);
+
+      fprintf(Clients,"\nHairstyle select: %s\nMode of payment: %s\n",client[i].hairstyle,client[i].payment);
+      //fgets(client[i].hairstyle,sizeof(40),stdin);
+
+      printf("\n\nWe offer other optional services like:\n1.Hair Washing->Shs.5000\n2.Hair Treatment->Shs.6000\n");
+      printf("\nPlease enter \n1.Enter 'a' for yes \n2.Enter 'b' for no\n\n");
+      printf("\nWill you need your hair washed\n");
+      scanf("%s",&choice);
+
+       if(choice=='a'){
+         printf("\nWill you need hair treatment;\n");
+         scanf("%s",&choice2);
+         if(choice2=='a') {
+           printf("\ntotal cost=Shs.21,000\n");
+           fprintf(Clients,"\nTotal charge= 21,000\n");
+          }else if(choice2=='b'){
+           printf("\nWe shall continue to plaiting straight away");
+           printf("\ntotal cost=Shs.15,000/=\n");
+           fprintf(Clients,"\n\ntotal cost=Shs.15,000/=\n");
+         }else{
+           printf("invalid");
+         }
+       }else{
+         printf("\nWe shall continue to plaiting straight away");
+         printf("\ntotal cost=Shs.10,000/=\n");
+         fprintf(Clients,"\ntotal cost=Shs.10,000/=\n");
+
+       }
+
+        printf("\nPlease proceed to the cashier for payment and there after wait for assignment of hair dresser; \n");
+        printf("\n\nTHANK YOU FOR CHOOSING RASHA UNISEX AND BRIDAL SALOON FOR YOUR HAIR NEEDS \n");
+
+    // }else{
+       // printf("please try again");
+
+    // }
+
+   }
+
+  }else{
+    exit(0);
+
+  }
+  fclose(Clients);
+    return 0;
+}
