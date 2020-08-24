@@ -1,3 +1,7 @@
+Name;Rujumba Leonard
+Course;SV202001B
+Link;https://github.com/RujumbaLeonard/MY-PROJECT
+
 #include "stdio.h"
 #include "string.h"
 #include "stdlib.h"
